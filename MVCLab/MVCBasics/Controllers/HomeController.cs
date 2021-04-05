@@ -29,16 +29,17 @@ namespace MVCBasics.Controllers
             return new RedirectToRouteResult(new { Controller = "About", action = "Index" });
         }
 
-        public RedirectToActionResult Index()
+        public ViewResult Index()
         {
-            return RedirectToAction("Privacy");
+            TempData["sessionName"] = "This is from temp data";
+            return View();
         }
 
         public ViewResult Privacy()
         {
             ViewBag.Header = "This is coming from ViewBag";
             ViewBag.Message = "Use this page to detail your site's privacy policy.";
-
+            ViewBag.Temp = TempData["sessionName"];
             return View();
         }
 
@@ -47,6 +48,8 @@ namespace MVCBasics.Controllers
         {
             var error = new ErrorViewModel();
             error.RequestId = "fdf";
+            error.Content = TempData.Peek("sessionName").ToString();
+            
             return View(error);
         }
 
