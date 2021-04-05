@@ -26,29 +26,11 @@ namespace MVCBasics.Controllers
             return View("Form");
         }
 
+        [ServiceFilter(typeof(ValidationFilter))]
         [HttpPost]
         public IActionResult PostForm(EmployeeModel employee)
         {
-            if (ModelState.IsValid)
-            {
-                ViewBag.FullName = "Thank you for submitting the form " + employee.FirstName + " " + employee.LastName;
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder("");
-                foreach (var value in ModelState.Values)
-                {
-                    if (value.Errors.Count > 0)
-                    {
-                        for (int i = 0; i < value.Errors.Count; i++)
-                        {
-                            sb.Append(value.Errors[i].ErrorMessage + "\n");
-                        }
-                    }
-                }
-
-                ViewBag.Error = sb.ToString();
-            }
+            ViewBag.FullName = "Thank you for submitting the form " + employee.FirstName + " " + employee.LastName;
             return View("Form");
         }
     }
