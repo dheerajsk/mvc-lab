@@ -18,6 +18,7 @@ namespace MVCBasics.Controllers
             _logger = logger;
         }
 
+        [ActionName("Content")]
         public ContentResult GetContent()
         {
             return Content("This is a sample content from ContentResult");
@@ -35,13 +36,24 @@ namespace MVCBasics.Controllers
 
         public ViewResult Privacy()
         {
+            ViewBag.Header = "This is coming from ViewBag";
+            ViewBag.Message = "Use this page to detail your site's privacy policy.";
+
             return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = null });
+            var error = new ErrorViewModel();
+            error.RequestId = "fdf";
+            return View(error);
+        }
+
+        [NonAction]
+        public void ProcessView()
+        {
+            Console.WriteLine("Processing");
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿
+<h3>List of Users</h3>
+<table style="border: 1px solid black">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+    </tr>
+    @foreach (UserModel user in ViewData["users"] as List<UserModel>)
+    {
+        <tr>
+            <td>@user.ID</td>
+            <td>@user.Name</td>
+        </tr>
+    }
+</table>
