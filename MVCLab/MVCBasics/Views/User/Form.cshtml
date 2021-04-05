@@ -1,0 +1,25 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>user Form</title>
+</head>
+<body>
+
+    <form asp-action="PostForm" asp-controller="User" method="post">
+        <table>
+            <tr>
+                <td>First Name: </td>
+                <td><input type="text" name="FirstName" value="" /></td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td><input type="text" name="LastName" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <h2>@ViewBag.FullName</h2>
+</body>
+</html>

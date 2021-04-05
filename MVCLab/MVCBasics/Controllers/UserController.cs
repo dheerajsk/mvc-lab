@@ -19,5 +19,17 @@ namespace MVCBasics.Controllers
             ViewData["users"] = users;
             return View();
         }
+
+        public ViewResult GetForm()
+        {
+            return View("Form");
+        }
+
+        [HttpPost]
+        public IActionResult PostForm(string FirstName, string LastName)
+        {
+            ViewBag.FullName = "Thank you for submitting the form " + FirstName + " " + LastName;
+            return View("Form");
+        }
     }
 }
