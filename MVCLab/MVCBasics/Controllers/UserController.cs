@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCBasics.Models;
@@ -26,9 +27,28 @@ namespace MVCBasics.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostForm(string FirstName, string LastName)
+        public IActionResult PostForm(EmployeeModel employee)
         {
-            ViewBag.FullName = "Thank you for submitting the form " + FirstName + " " + LastName;
+            if (ModelState.IsValid)
+            {
+                ViewBag.FullName = "Thank you for submitting the form " + employee.FirstName + " " + employee.LastName;
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder("");
+                foreach (var value in ModelState.Values)
+                {
+                    if (value.Errors.Count > 0)
+                    {
+                        for (int i = 0; i < value.Errors.Count; i++)
+                        {
+                            sb.Append(value.Errors[i].ErrorMessage + "\n");
+                        }
+                    }
+                }
+
+                ViewBag.Error = sb.ToString();
+            }
             return View("Form");
         }
     }

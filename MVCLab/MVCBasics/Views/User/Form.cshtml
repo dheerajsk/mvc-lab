@@ -15,11 +15,21 @@
                 <td><input type="text" name="LastName" value="" /></td>
             </tr>
             <tr>
+                <td>Mobile: </td>
+                <td><input type="tel" name="Mobile" value="" /></td>
+            </tr>
+            <tr>
+                <td>City: </td>
+                <td><input type="text" name="City" value="" /></td>
+            </tr>
+            <tr>
                 <td><input type="submit" value="Submit" /></td>
             </tr>
         </table>
     </form>
 
-    <h2>@ViewBag.FullName</h2>
+    <h3>@ViewBag.FullName</h3>
+
+    <h3 style="color: red">@ViewBag.Error</h3>
 </body>
 </html>
