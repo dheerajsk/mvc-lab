@@ -51,8 +51,15 @@ namespace MVCBasics
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "user",
+                    pattern: "user",
+                    defaults: new { controller = "User", action = "GetForm" }
+                    );
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }
