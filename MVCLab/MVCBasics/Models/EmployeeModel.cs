@@ -8,6 +8,8 @@ namespace MVCBasics.Models
 {
     public class EmployeeModel
     {
+        public string ID { get; set; }
+
         [StringLength(10)]
         [Required]
         public string FirstName { get; set; }
@@ -20,5 +22,8 @@ namespace MVCBasics.Models
 
         [StringLength(10)]
         public string City { get; set; }
+
+        [StringLength(10)]
+        public string Department { get; set; }
     }
 }
