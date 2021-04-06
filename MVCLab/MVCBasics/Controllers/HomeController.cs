@@ -9,6 +9,7 @@ using MVCBasics.Models;
 
 namespace MVCBasics.Controllers
 {
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

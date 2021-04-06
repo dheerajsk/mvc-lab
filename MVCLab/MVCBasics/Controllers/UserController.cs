@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using MVCBasics.Models;
 
 namespace MVCBasics.Controllers
 {
+    [Route("user")]
     public class UserController : Controller
     {
+        [Route("Index")]
         public IActionResult Index()
         {
             List<UserModel> users = new List<UserModel>();
@@ -21,6 +24,8 @@ namespace MVCBasics.Controllers
             return View();
         }
 
+        [Route("")]
+        [Route("Form")]
         public ViewResult GetForm()
         {
             return View("Form");

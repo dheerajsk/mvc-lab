@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MVCBasics.Controllers
 {
+    [Route("[controller]/[action]")]
     public class HeaderController : Controller
     {
         public PartialViewResult Index()
