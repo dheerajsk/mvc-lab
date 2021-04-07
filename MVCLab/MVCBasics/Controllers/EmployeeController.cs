@@ -7,17 +7,17 @@ namespace MVCBasics.Controllers
 {
     public class EmployeeController : Controller
     {
-        private readonly EmployeeRepository _repo;
+        private readonly IBaseRepository<EmployeeModel> _repo;
 
-        public EmployeeController(DataLayer.AppContext context)
+        public EmployeeController(IBaseRepository<EmployeeModel> repo)
         {
-            _repo = new EmployeeRepository(context);
+            _repo = repo;
         }
 
         // GET: Employee
         public async Task<IActionResult> Index()
         {
-            return View(await _repo.Index());
+            return View(await _repo.GetAll());
         }
 
         // GET: Employee/Details/5
@@ -28,7 +28,7 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var employeeModel = await _repo.Details(id);
+            var employeeModel = await _repo.Get(id);
             if (employeeModel == null)
             {
                 return NotFound();
@@ -52,7 +52,7 @@ namespace MVCBasics.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _repo.Create(employeeModel);
+                await _repo.Insert(employeeModel);
                 return RedirectToAction(nameof(Index));
             }
             return View(employeeModel);
@@ -66,7 +66,7 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var employeeModel = await _repo.Find(id);
+            var employeeModel = await _repo.Get(id);
             if (employeeModel == null)
             {
                 return NotFound();
@@ -88,11 +88,8 @@ namespace MVCBasics.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = await _repo.Edit(id, employeeModel);
-                if(result is null)
-                {
-                    return NotFound();
-                }
+                await _repo.Update(employeeModel);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(employeeModel);
@@ -106,7 +103,7 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var employeeModel = await _repo.Find(id);
+            var employeeModel = await _repo.Get(id);
             if (employeeModel == null)
             {
                 return NotFound();
@@ -120,7 +117,7 @@ namespace MVCBasics.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            await _repo.DeleteConfirmed(id);
+            await _repo.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 

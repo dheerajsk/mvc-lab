@@ -26,9 +26,10 @@ namespace MVCBasics
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataLayer.AppContext>(item => 
+            services.AddDbContext<DataLayer.AppContext>(item =>
                 item.UseSqlServer(Configuration.GetConnectionString("AppContext")));
             services.AddScoped<ValidationFilter>();
+            services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddControllersWithViews().AddNewtonsoftJson();
         }
 
