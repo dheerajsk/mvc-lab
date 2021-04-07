@@ -21,6 +21,7 @@ namespace MVCBasics.Migrations
             modelBuilder.Entity("MVCBasics.Models.EmployeeModel", b =>
                 {
                     b.Property<string>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("City")

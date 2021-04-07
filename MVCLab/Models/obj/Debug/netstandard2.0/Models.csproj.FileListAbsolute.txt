@@ -1,0 +1,4 @@
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.0\Models.csprojAssemblyReference.cache
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.0\Models.AssemblyInfoInputs.cache
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.0\Models.AssemblyInfo.cs
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.0\Models.csproj.CoreCompileInputs.cache

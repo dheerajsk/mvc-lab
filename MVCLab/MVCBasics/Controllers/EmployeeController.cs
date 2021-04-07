@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DataLayer;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using MVCBasics;
 using MVCBasics.Models;
+using System.Threading.Tasks;
 
 namespace MVCBasics.Controllers
 {
     public class EmployeeController : Controller
     {
-        private readonly AppContext _context;
+        private readonly EmployeeRepository _repo;
 
-        public EmployeeController(AppContext context)
+        public EmployeeController(DataLayer.AppContext context)
         {
-            _context = context;
+            _repo = new EmployeeRepository(context);
         }
 
         // GET: Employee
         public async Task<IActionResult> Index()
         {
-            return View(await _context.EmployeeModel.ToListAsync());
+            return View(_repo.Index());
         }
 
         // GET: Employee/Details/5
@@ -33,8 +28,7 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var employeeModel = await _context.EmployeeModel
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var employeeModel = _repo.Details(id);
             if (employeeModel == null)
             {
                 return NotFound();
@@ -58,8 +52,7 @@ namespace MVCBasics.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(employeeModel);
-                await _context.SaveChangesAsync();
+                _repo.Create(employeeModel);
                 return RedirectToAction(nameof(Index));
             }
             return View(employeeModel);
@@ -73,7 +66,7 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var employeeModel = await _context.EmployeeModel.FindAsync(id);
+            var employeeModel = await _repo.Find(id);
             if (employeeModel == null)
             {
                 return NotFound();
@@ -95,21 +88,10 @@ namespace MVCBasics.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                var result = _repo.Edit(id, employeeModel);
+                if(result is null)
                 {
-                    _context.Update(employeeModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EmployeeModelExists(employeeModel.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return NotFound();
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -124,8 +106,7 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var employeeModel = await _context.EmployeeModel
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var employeeModel = await _repo.Find(id);
             if (employeeModel == null)
             {
                 return NotFound();
@@ -139,15 +120,9 @@ namespace MVCBasics.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var employeeModel = await _context.EmployeeModel.FindAsync(id);
-            _context.EmployeeModel.Remove(employeeModel);
-            await _context.SaveChangesAsync();
+            _repo.DeleteConfirmed(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EmployeeModelExists(string id)
-        {
-            return _context.EmployeeModel.Any(e => e.ID == id);
-        }
     }
 }
