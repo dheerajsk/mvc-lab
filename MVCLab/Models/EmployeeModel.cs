@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace MVCBasics.Models
 {
-    public class EmployeeModel
+    public class EmployeeModel : BaseModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string ID { get; set; }
 
         [StringLength(10)]
         [Required]

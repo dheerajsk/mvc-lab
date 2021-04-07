@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MVCBasics.Models
 {
-    public class StudentModel
+    public class StudentModel : BaseModel
     {
-        public string ID { get; set; }
 
         public string FirstName { get; set; }
 
