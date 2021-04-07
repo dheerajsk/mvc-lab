@@ -1,0 +1,8 @@
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.1\Models.AssemblyInfoInputs.cache
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.1\Models.AssemblyInfo.cs
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.1\Models.csproj.CoreCompileInputs.cache
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\bin\Debug\netstandard2.1\Models.deps.json
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\bin\Debug\netstandard2.1\Models.dll
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\bin\Debug\netstandard2.1\Models.pdb
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.1\Models.dll
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\Models\obj\Debug\netstandard2.1\Models.pdb

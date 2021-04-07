@@ -5,3 +5,5 @@
 /MVCLab/MVCBasics/bin/Debug/netcoreapp3.1
 /MVCLab/.vs/MVCLab
 /MVCLab/MVCBasics/obj
+/MVCLab/DataLayer/bin/Debug/netstandard2.1
+/MVCLab/Models/bin/Debug/netstandard2.1

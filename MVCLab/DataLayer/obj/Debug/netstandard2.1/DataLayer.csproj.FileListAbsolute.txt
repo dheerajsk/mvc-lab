@@ -1,0 +1,12 @@
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\obj\Debug\netstandard2.1\DataLayer.csprojAssemblyReference.cache
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\obj\Debug\netstandard2.1\DataLayer.AssemblyInfoInputs.cache
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\obj\Debug\netstandard2.1\DataLayer.AssemblyInfo.cs
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\obj\Debug\netstandard2.1\DataLayer.csproj.CoreCompileInputs.cache
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\bin\Debug\netstandard2.1\DataLayer.deps.json
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\bin\Debug\netstandard2.1\DataLayer.dll
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\bin\Debug\netstandard2.1\DataLayer.pdb
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\bin\Debug\netstandard2.1\Models.dll
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\bin\Debug\netstandard2.1\Models.pdb
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\obj\Debug\netstandard2.1\DataLayer.csproj.CopyComplete
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\obj\Debug\netstandard2.1\DataLayer.dll
+D:\Trainings\.NET\Labs\mvc-lab\MVCLab\DataLayer\obj\Debug\netstandard2.1\DataLayer.pdb
