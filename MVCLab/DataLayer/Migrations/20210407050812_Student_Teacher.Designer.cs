@@ -4,14 +4,17 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using DataLayer;
 
 namespace MVCBasics.Migrations
 {
     [DbContext(typeof(DataLayer.AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20210407050812_Student_Teacher")]
+    partial class Student_Teacher
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
