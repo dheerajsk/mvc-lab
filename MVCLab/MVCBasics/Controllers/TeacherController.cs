@@ -12,20 +12,20 @@ namespace MVCBasics.Controllers
 {
     public class TeacherController : Controller
     {
-        private readonly DataLayer.AppContext _context;
+        private readonly IBaseRepository<TeacherModel> _repo;
 
-        public TeacherController(DataLayer.AppContext context)
+        public TeacherController(IBaseRepository<TeacherModel> repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
-        // GET: Teacher
+        // GET: Employee
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TeacherModel.ToListAsync());
+            return View(await _repo.GetAll());
         }
 
-        // GET: Teacher/Details/5
+        // GET: Employee/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -33,39 +33,37 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var teacherModel = await _context.TeacherModel
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (teacherModel == null)
+            var employeeModel = await _repo.Get(id);
+            if (employeeModel == null)
             {
                 return NotFound();
             }
 
-            return View(teacherModel);
+            return View(employeeModel);
         }
 
-        // GET: Teacher/Create
+        // GET: Employee/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Teacher/Create
+        // POST: Employee/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,FirstName,LastName,DateOfJoining,Department")] TeacherModel teacherModel)
+        public async Task<IActionResult> Create(TeacherModel employeeModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(teacherModel);
-                await _context.SaveChangesAsync();
+                await _repo.Insert(employeeModel);
                 return RedirectToAction(nameof(Index));
             }
-            return View(teacherModel);
+            return View(employeeModel);
         }
 
-        // GET: Teacher/Edit/5
+        // GET: Employee/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -73,50 +71,36 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var teacherModel = await _context.TeacherModel.FindAsync(id);
-            if (teacherModel == null)
+            var employeeModel = await _repo.Get(id);
+            if (employeeModel == null)
             {
                 return NotFound();
             }
-            return View(teacherModel);
+            return View(employeeModel);
         }
 
-        // POST: Teacher/Edit/5
+        // POST: Employee/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ID,FirstName,LastName,DateOfJoining,Department")] TeacherModel teacherModel)
+        public async Task<IActionResult> Edit(string id, TeacherModel employeeModel)
         {
-            if (id != teacherModel.ID)
+            if (id != employeeModel.ID)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(teacherModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TeacherModelExists(teacherModel.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _repo.Update(employeeModel);
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(teacherModel);
+            return View(employeeModel);
         }
 
-        // GET: Teacher/Delete/5
+        // GET: Employee/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,30 +108,22 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var teacherModel = await _context.TeacherModel
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (teacherModel == null)
+            var employeeModel = await _repo.Get(id);
+            if (employeeModel == null)
             {
                 return NotFound();
             }
 
-            return View(teacherModel);
+            return View(employeeModel);
         }
 
-        // POST: Teacher/Delete/5
+        // POST: Employee/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var teacherModel = await _context.TeacherModel.FindAsync(id);
-            _context.TeacherModel.Remove(teacherModel);
-            await _context.SaveChangesAsync();
+            await _repo.Delete(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool TeacherModelExists(string id)
-        {
-            return _context.TeacherModel.Any(e => e.ID == id);
         }
     }
 }
