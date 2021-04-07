@@ -34,7 +34,7 @@ namespace DataLayer
 
         }
 
-        public async void Create(EmployeeModel employeeModel)
+        public async Task Create(EmployeeModel employeeModel)
         {
             _context.Add(employeeModel);
             await _context.SaveChangesAsync();
@@ -66,7 +66,7 @@ namespace DataLayer
             return employeeModel;
         }
 
-        public async void DeleteConfirmed(string id)
+        public async Task DeleteConfirmed(string id)
         {
             var employeeModel = await _context.EmployeeModel.FindAsync(id);
             _context.EmployeeModel.Remove(employeeModel);

@@ -17,7 +17,7 @@ namespace MVCBasics.Controllers
         // GET: Employee
         public async Task<IActionResult> Index()
         {
-            return View(_repo.Index());
+            return View(await _repo.Index());
         }
 
         // GET: Employee/Details/5
@@ -28,7 +28,7 @@ namespace MVCBasics.Controllers
                 return NotFound();
             }
 
-            var employeeModel = _repo.Details(id);
+            var employeeModel = await _repo.Details(id);
             if (employeeModel == null)
             {
                 return NotFound();
@@ -52,7 +52,7 @@ namespace MVCBasics.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repo.Create(employeeModel);
+                await _repo.Create(employeeModel);
                 return RedirectToAction(nameof(Index));
             }
             return View(employeeModel);
@@ -88,7 +88,7 @@ namespace MVCBasics.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _repo.Edit(id, employeeModel);
+                var result = await _repo.Edit(id, employeeModel);
                 if(result is null)
                 {
                     return NotFound();
@@ -120,7 +120,7 @@ namespace MVCBasics.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            _repo.DeleteConfirmed(id);
+            await _repo.DeleteConfirmed(id);
             return RedirectToAction(nameof(Index));
         }
 
