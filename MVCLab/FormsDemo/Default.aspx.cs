@@ -43,5 +43,18 @@ namespace FormsDemo
 
         }
 
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (txtFname.Text.Length > 0)
+            {
+                lblPrint.Text = "Welcome, " + txtFname.Text + " " + txtLName.Text;
+                lblPrint.Text += "Your email is: " + txtEmail.Text;
+            }
+            else
+            {
+                lblPrint.Text = "Form is not complete";
+            }
+        }
     }
 }

@@ -10,7 +10,8 @@
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <h2>Getting started
+            </h2>
             <p>
                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
             A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
@@ -36,6 +37,63 @@
             <p>
                 <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
             </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <asp:Panel BackColor="Yellow" ID="Panel1" runat="server">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblFname" runat="server" Text="First Name"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblLname" runat="server" Text="Last Name"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox TextMode="Password" ID="txtPassword" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblEMail" runat="server" Text="Email"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox TextMode="Email" ID="txtEmail" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblDoB" runat="server" Text="Date OF birth"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox TextMode="Date" ID="txtDOB" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit Form" />
+                        </td>
+                    </tr>
+                </table>
+                <asp:Label ID="lblPrint" runat="server" Text=""></asp:Label>
+            </asp:Panel>
         </div>
     </div>
 
