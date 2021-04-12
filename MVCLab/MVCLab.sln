@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormAuth", "FormAuth\FormAu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsDemo", "FormsDemo\FormsDemo.csproj", "{46CED27F-77E8-4B70-B77E-A52D9ABFC75A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQPrograms", "LINQPrograms\LINQPrograms.csproj", "{B1EEC593-A2AF-4618-8E6F-5C88A97B54C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{46CED27F-77E8-4B70-B77E-A52D9ABFC75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CED27F-77E8-4B70-B77E-A52D9ABFC75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CED27F-77E8-4B70-B77E-A52D9ABFC75A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1EEC593-A2AF-4618-8E6F-5C88A97B54C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EEC593-A2AF-4618-8E6F-5C88A97B54C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EEC593-A2AF-4618-8E6F-5C88A97B54C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EEC593-A2AF-4618-8E6F-5C88A97B54C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

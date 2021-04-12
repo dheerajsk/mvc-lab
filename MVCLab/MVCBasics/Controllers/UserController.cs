@@ -16,9 +16,12 @@ namespace MVCBasics.Controllers
         public IActionResult Index()
         {
             List<UserModel> users = new List<UserModel>();
-            users.Add(new UserModel { ID = 1, Name = "Philip" });
-            users.Add(new UserModel { ID = 2, Name = "Jon" });
-            users.Add(new UserModel { ID = 3, Name = "Kabir" });
+            users.Add(new UserModel { ID = 1, Name = "Philip", Age = 20 });
+            users.Add(new UserModel { ID = 2, Name = "Jon", Age = 21 });
+            users.Add(new UserModel { ID = 3, Name = "Kabir", Age = 30 });
+            users.Add(new UserModel { ID = 4, Name = "Doe", Age = 50 });
+            users.Add(new UserModel { ID = 5, Name = "Ram", Age = 26 });
+            users.Add(new UserModel { ID = 6, Name = "Shyam", Age = 29 });
 
             ViewData["users"] = users;
             return View();

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="State.aspx.cs" Inherits="FormsDemo.State" %>
+﻿<%@ Page Language="C#" Trace="true" TraceMode="SortByTime" AutoEventWireup="true" CodeBehind="State.aspx.cs" Inherits="FormsDemo.State" %>
 
 <!DOCTYPE html>
 
