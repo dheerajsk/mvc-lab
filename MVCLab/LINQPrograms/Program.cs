@@ -10,6 +10,12 @@ namespace LINQPrograms
 
         static void Main(string[] args)
         {
+            SetOperations.DoUnionAll();
+            Console.Read();
+        }
+
+        static void Do()
+        {
             Seed();
             Console.WriteLine("All users\n");
             foreach (User user in users)
@@ -69,7 +75,6 @@ namespace LINQPrograms
 
 
             Console.ReadLine();
-
         }
 
 
