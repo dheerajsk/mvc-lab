@@ -10,7 +10,8 @@ namespace LINQPrograms
 
         static void Main(string[] args)
         {
-            SetOperations.DoUnionAll();
+            //SetOperations.DoUnionAll();
+            JoinOperation.Do();
             Console.Read();
         }
 
