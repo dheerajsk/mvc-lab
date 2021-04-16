@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCBasics.Models;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ namespace ApiLab.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EmployeeController : ControllerBase
     {
 

@@ -31,6 +31,14 @@ namespace MVCBasics
             services.AddScoped<ValidationFilter>();
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddControllersWithViews().AddNewtonsoftJson();
+
+            services.AddAuthentication(
+                x=>
+                {
+                    x.DefaultAuthenticateScheme = JwtBearerDefaults
+                }
+                )
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +58,7 @@ namespace MVCBasics
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
