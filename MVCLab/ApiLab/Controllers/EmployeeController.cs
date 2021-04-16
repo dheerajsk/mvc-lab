@@ -70,6 +70,7 @@ namespace ApiLab.Controllers
         }
 
         // GET: Employee/Delete/5
+        [HttpDelete]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
