@@ -41,10 +41,7 @@ namespace ApiLab.Controllers
             return Ok(employeeModel);
         }
 
-        // POST: Employee/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Post(EmployeeModel employeeModel)
         {
             if (ModelState.IsValid)
@@ -55,11 +52,7 @@ namespace ApiLab.Controllers
             return BadRequest();
         }
 
-        // POST: Employee/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPut]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Put(EmployeeModel employeeModel)
         {
             if (string.IsNullOrEmpty(employeeModel.ID))
